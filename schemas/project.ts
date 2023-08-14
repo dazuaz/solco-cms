@@ -89,5 +89,21 @@ export default {
       "name": "featured",
       "type": "boolean"
     }
+  ],
+  preview: {
+    select: {
+      media: 'thumbnail',
+      title: 'title.en',
+      subtitle: 'location'
+    }
+  },
+  orderings: [
+    {
+      title: 'Project Date, New',
+      name: 'projectDateDesc',
+      by: [
+        { field: 'date', direction: 'desc' }
+      ]
+    }
   ]
 }
