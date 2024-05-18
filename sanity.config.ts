@@ -1,19 +1,17 @@
-import { defineConfig, isDev } from 'sanity'
+import { defineConfig } from 'sanity'
 import { visionTool } from '@sanity/vision'
-import { deskTool } from 'sanity/desk'
+import { structureTool } from 'sanity/structure'
 import { schemaTypes } from './schemas'
-import { getStartedPlugin } from './plugins/sanity-plugin-tutorial'
 import { dashboardTool } from "@sanity/dashboard";
 import { netlifyWidget } from "sanity-plugin-dashboard-widget-netlify";
 
-const devOnlyPlugins = [getStartedPlugin()]
 
 export default defineConfig({
   name: 'default',
   title: 'solco-cms',
   projectId: 'q24ff7vw',
   dataset: 'production',
-  plugins: [deskTool(), visionTool(), dashboardTool({
+  plugins: [structureTool(), visionTool(), dashboardTool({
     widgets: [
       netlifyWidget({
         title: 'My Netlify deploys',
@@ -27,7 +25,7 @@ export default defineConfig({
         ]
       })
     ]
-  }), ...(isDev ? devOnlyPlugins : [])],
+  })],
   schema: {
     types: schemaTypes,
   },
