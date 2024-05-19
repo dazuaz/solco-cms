@@ -41,6 +41,26 @@ export const contentAbout = defineType({
         defineField({ name: 'title', type: 'string', title: 'Title' }),
         defineField({ name: 'description', type: 'text', title: 'Description' })
       ]
+    }),
+    defineField({
+      name: 'highlights',
+      type: 'object',
+      title: 'Highlights',
+      fields: [
+        defineField({ name: 'title', type: 'string', title: 'Title' }),
+        defineField({
+          name: 'items',
+          type: 'array',
+          title: 'items',
+          of: [{
+            type: 'object',
+            fields: [
+              defineField({ name: 'heading', type: 'string', title: 'Title' }),
+              defineField({ name: 'description', type: 'text', title: 'Description' }),
+            ],
+          }],
+        }),
+      ],
     })
   ]
 });

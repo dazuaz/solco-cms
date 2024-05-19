@@ -5,6 +5,6 @@ export const contentProject = defineType({
   type: 'object',
   title: 'Project Content',
   fields: [
-    defineField({ name: 'intro', type: 'text', title: 'Projects Introduction' }),
+    defineField({ name: 'intro', type: 'array', title: 'Projects Introduction', of: [{ type: 'block' }] }),
   ]
 });

@@ -6,20 +6,21 @@ export const project = defineType({
   "title": "Projects",
   "type": "document",
   "fields": [
-    {
+    defineField({
       "name": "title",
       "type": "object",
       "fields": [
-        {
+        defineField({
           "name": "en",
-          "type": "string"
-        },
-        {
+          "type": "string",
+          validation: (Rule) => Rule.required()
+        }),
+        defineField({
           "name": "es",
           "type": "string"
-        }
+        })
       ]
-    },
+    }),
     {
       "name": "description",
       "type": "object",
@@ -74,19 +75,19 @@ export const project = defineType({
       "name": "thumbnail",
       "type": "image"
     },
-    {
+    defineField({
       title: 'Slug',
       name: 'slug',
       type: 'slug',
-      validation: (Rule: Rule) => Rule.required(),
+      validation: (Rule) => Rule.required(),
       options: {
-        source: (doc: any) => `${doc.date} ${doc.title.en}`,
+        source: (doc: any) => `${doc.title.en}`,
         slugify: (input: string) => input
           .toLowerCase()
           .replace(/\s+/g, '-')
           .slice(0, 200)
       }
-    },
+    }),
     {
       "name": "featured",
       "type": "boolean"
