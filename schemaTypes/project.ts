@@ -1,5 +1,7 @@
 import type { Rule } from "sanity"
-export default {
+import { defineField, defineType } from "sanity";
+
+export const project = defineType({
   "name": "projects",
   "title": "Projects",
   "type": "document",
@@ -106,4 +108,4 @@ export default {
       ]
     }
   ]
-} 
+})

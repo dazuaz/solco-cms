@@ -1,10 +1,9 @@
 import { defineConfig } from 'sanity'
 import { visionTool } from '@sanity/vision'
 import { structureTool } from 'sanity/structure'
-import { schemaTypes } from './schemas'
+import { schema } from './schemaTypes'
 import { dashboardTool } from "@sanity/dashboard";
 import { netlifyWidget } from "sanity-plugin-dashboard-widget-netlify";
-
 
 export default defineConfig({
   name: 'default',
@@ -26,8 +25,6 @@ export default defineConfig({
       })
     ]
   })],
-  schema: {
-    types: schemaTypes,
-  },
+  schema
 })
 
