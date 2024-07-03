@@ -19,14 +19,12 @@ export const page = defineField({
         defineField({ name: 'desc', type: 'text', title: 'Description' })
       ]
     }),
-    // defineField({
-    //   name: 'pageContent',
-    //   title: 'Page Content',
-    //   type: 'array',
-    //   of: [
-    //     { type: 'contentAbout', }, { type: 'contentProject' }
-    //   ]
-    // }),
+    defineField({
+      name: 'servicesContent',
+      title: 'Page Content',
+      type: 'contentServices',
+      hidden: ({ document }: { document: any }) => !(document?.slug?.current === 'services'),
+    }),
     defineField({
       name: 'projectContent',
       title: 'Page Content',
@@ -38,7 +36,13 @@ export const page = defineField({
       title: 'Page Content',
       type: 'contentAbout',
       hidden: ({ document }: { document: any }) => !(document?.slug?.current === 'about'),
-    })
+    }),
+    defineField({
+      name: 'homeContent',
+      title: 'Page Content',
+      type: 'contentHome',
+      hidden: ({ document }: { document: any }) => !(document?.slug?.current === 'home'),
+    }),
   ]
 })
 
@@ -53,6 +57,26 @@ export const pages = defineType({
       title: 'Slug',
       hidden: !isDev,
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'aboutImage',
+      type: 'image',
+      hidden: ({ document }: { document: any }) => !(document?.slug?.current === 'about'),
+    }),
+    defineField({
+      name: 'servicesRemodelingImage',
+      type: 'image',
+      hidden: ({ document }: { document: any }) => !(document?.slug?.current === 'services'),
+    }),
+    defineField({
+      name: 'servicesProjectsImage',
+      type: 'image',
+      hidden: ({ document }: { document: any }) => !(document?.slug?.current === 'services'),
+    }),
+    defineField({
+      name: 'servicesCommercialImage',
+      type: 'image',
+      hidden: ({ document }: { document: any }) => !(document?.slug?.current === 'services'),
     }),
     defineField({
       name: 'en',
