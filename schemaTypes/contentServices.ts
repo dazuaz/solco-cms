@@ -8,7 +8,7 @@ export const contentServices = defineType({
     defineField({
       name: 'remodeling',
       type: 'object',
-      title: 'Remodeling and Renovation',
+      title: 'New Construction and Renovation',
       fields: [
         defineField({ name: 'title', type: 'string', title: 'Title' }),
         defineField({ name: 'subtitle', type: 'string', title: 'Subtitle' }),
