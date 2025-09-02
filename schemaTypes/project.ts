@@ -1,50 +1,56 @@
-import type { Rule } from "sanity"
-import { defineField, defineType } from "sanity";
+import type {Rule} from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 export const project = defineType({
-  "name": "projects",
-  "title": "Projects",
-  "type": "document",
-  "fields": [
+  name: 'projects',
+  title: 'Projects',
+  type: 'document',
+  fields: [
     defineField({
-      "name": "title",
-      "type": "object",
-      "fields": [
+      name: 'title',
+      type: 'object',
+      fields: [
         defineField({
-          "name": "en",
-          "type": "string",
-          validation: (Rule) => Rule.required()
+          name: 'en',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
         }),
         defineField({
-          "name": "es",
-          "type": "string"
-        })
-      ]
+          name: 'es',
+          type: 'string',
+        }),
+      ],
     }),
     {
-      "name": "description",
-      "type": "object",
-      "fields": [
+      name: 'description',
+      type: 'object',
+      fields: [
         {
-          "name": "en",
-          "type": "text"
+          name: 'en',
+          type: 'text',
         },
         {
-          "name": "es",
-          "type": "text"
-        }
-      ]
+          name: 'es',
+          type: 'text',
+        },
+      ],
     },
     {
-      "name": "location",
-      "type": "string"
+      name: 'location',
+      type: 'string',
     },
     {
-      "name": "date",
-      "type": "date",
+      name: 'date',
+      type: 'date',
       options: {
         dateFormat: 'YYYY-MM',
-      }
+      },
+    },
+    {
+      name: 'virtualTourSrc',
+      title: 'Virtual Tour Link',
+      description: 'Copy and paste the link to the virtual tour of the project',
+      type: 'url',
     },
     {
       name: 'galleryImages',
@@ -72,8 +78,8 @@ export const project = defineType({
       },
     },
     {
-      "name": "thumbnail",
-      "type": "image"
+      name: 'thumbnail',
+      type: 'image',
     },
     defineField({
       title: 'Slug',
@@ -82,31 +88,26 @@ export const project = defineType({
       validation: (Rule) => Rule.required(),
       options: {
         source: (doc: any) => `${doc.title.en}`,
-        slugify: (input: string) => input
-          .toLowerCase()
-          .replace(/\s+/g, '-')
-          .slice(0, 200)
-      }
+        slugify: (input: string) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+      },
     }),
     {
-      "name": "featured",
-      "type": "boolean"
-    }
+      name: 'featured',
+      type: 'boolean',
+    },
   ],
   preview: {
     select: {
       media: 'thumbnail',
       title: 'title.en',
-      subtitle: 'location'
-    }
+      subtitle: 'location',
+    },
   },
   orderings: [
     {
       title: 'Project Date, New',
       name: 'projectDateDesc',
-      by: [
-        { field: 'date', direction: 'desc' }
-      ]
-    }
-  ]
+      by: [{field: 'date', direction: 'desc'}],
+    },
+  ],
 })
