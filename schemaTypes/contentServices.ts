@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import {defineField, defineType} from 'sanity'
 
 export const contentServices = defineType({
   name: 'contentServices',
@@ -10,48 +10,48 @@ export const contentServices = defineType({
       type: 'object',
       title: 'New Construction and Renovation',
       fields: [
-        defineField({ name: 'title', type: 'string', title: 'Title' }),
-        defineField({ name: 'subtitle', type: 'string', title: 'Subtitle' }),
-        defineField({ name: 'description', type: 'text', title: 'Description' }),
+        defineField({name: 'title', type: 'string', title: 'Title'}),
+        defineField({name: 'subtitle', type: 'string', title: 'Subtitle'}),
+        defineField({name: 'description', type: 'text', title: 'Description'}),
         defineField({
           name: 'highlights',
           type: 'array',
           title: 'Highlights',
-          of: [{ type: 'string' }]
-        })
-      ]
+          of: [{type: 'string'}],
+        }),
+      ],
     }),
     defineField({
       name: 'newhome',
       type: 'object',
       title: 'New Home',
       fields: [
-        defineField({ name: 'title', type: 'string', title: 'Title' }),
-        defineField({ name: 'subtitle', type: 'string', title: 'Subtitle' }),
-        defineField({ name: 'description', type: 'text', title: 'Description' }),
+        defineField({name: 'title', type: 'string', title: 'Title'}),
+        defineField({name: 'subtitle', type: 'string', title: 'Subtitle'}),
+        defineField({name: 'description', type: 'text', title: 'Description'}),
         defineField({
           name: 'highlights',
           type: 'array',
           title: 'Highlights',
-          of: [{ type: 'string' }]
-        })
-      ]
+          of: [{type: 'string'}],
+        }),
+      ],
     }),
     defineField({
       name: 'commercial',
       type: 'object',
       title: 'Commercial Contractor',
       fields: [
-        defineField({ name: 'title', type: 'string', title: 'Title' }),
-        defineField({ name: 'subtitle', type: 'string', title: 'Subtitle' }),
-        defineField({ name: 'description', type: 'text', title: 'Description' }),
+        defineField({name: 'title', type: 'string', title: 'Title'}),
+        defineField({name: 'subtitle', type: 'string', title: 'Subtitle'}),
+        defineField({name: 'description', type: 'text', title: 'Description'}),
         defineField({
           name: 'highlights',
           type: 'array',
           title: 'Highlights',
-          of: [{ type: 'string' }]
-        })
-      ]
-    })
-  ]
-});
+          of: [{type: 'string'}],
+        }),
+      ],
+    }),
+  ],
+})

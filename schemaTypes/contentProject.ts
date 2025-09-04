@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import {defineField, defineType} from 'sanity'
 
 export const contentProject = defineType({
   name: 'contentProject',
@@ -10,7 +10,7 @@ export const contentProject = defineType({
       type: 'array',
       title: 'Projects Introduction',
       validation: (Rule) => Rule.required(),
-      of: [{ type: 'block' }]
+      of: [{type: 'block'}],
     }),
-  ]
-});
+  ],
+})
