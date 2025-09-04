@@ -88,12 +88,6 @@ export const pages = defineType({
       hidden: ({document}: {document: any}) => !(document?.slug?.current === 'services'),
     }),
     defineField({
-      name: 'latestProjectsMatterport',
-      type: 'array',
-      of: [{type: 'url'}],
-      hidden: ({document}: {document: any}) => !(document?.slug?.current === 'home'),
-    }),
-    defineField({
       name: 'en',
       type: 'page',
       title: 'English Content',
