@@ -10,6 +10,7 @@ export default defineConfig({
   title: 'solco-cms',
   projectId: 'q24ff7vw',
   dataset: 'production',
+  studioHost: 'solco',
   plugins: [
     structureTool(),
     visionTool(),

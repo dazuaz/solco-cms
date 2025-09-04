@@ -83,16 +83,7 @@ export const project = defineType({
     }),
     defineField({
       name: 'slug',
-      type: 'slug',
-      validation: (Rule) => Rule.required(),
-      options: {
-        source: (doc: any) => `${doc.title.en}`,
-        slugify: (input: string) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
-      },
-    }),
-    defineField({
       title: 'Slug',
-      name: 'slug',
       type: 'slug',
       validation: (Rule) => Rule.required(),
       options: {
